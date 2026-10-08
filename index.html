@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Aventura de Manzanas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-900 flex flex-col items-center justify-center min-h-screen p-2 select-none overflow-hidden">
+    <div id="game-container" class="relative w-full max-w-md bg-sky-300 rounded-xl overflow-hidden shadow-2xl border-4 border-slate-800 flex flex-col items-center">
+        <canvas id="gameCanvas" width="400" height="550" class="w-full h-auto bg-sky-300 block"></canvas>
+
+        <div id="controls" class="w-full bg-slate-800 p-3 grid grid-cols-3 gap-2 border-t-4 border-slate-900">
+            <button id="btn-left" class="bg-green-500 hover:bg-green-600 active:bg-green-700 text-white font-bold py-3 rounded-lg border-b-4 border-green-800 active:border-b-0 flex items-center justify-center">
+                <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg>
+            </button>
+            <button id="btn-right" class="bg-green-500 hover:bg-green-600 active:bg-green-700 text-white font-bold py-3 rounded-lg border-b-4 border-green-800 active:border-b-0 flex items-center justify-center">
+                <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+            </button>
+            <button id="btn-jump" class="bg-yellow-500 hover:bg-yellow-600 active:bg-yellow-700 text-slate-900 font-extrabold py-3 rounded-lg border-b-4 border-yellow-800 active:border-b-0 text-xs sm:text-sm flex items-center justify-center">
+                SALTAR
+            </button>
+        </div>
+
+        <div id="start-screen" class="absolute inset-0 bg-sky-400 bg-opacity-95 flex flex-col items-center justify-center p-6 text-center z-10">
+            <h1 class="text-xl sm:text-2xl text-emerald-900 font-extrabold mb-2 leading-tight drop-shadow-md">
+                AVENTURA DE<br><span class="text-red-600 text-2xl sm:text-3xl">MANZANAS</span>
+            </h1>
+            <p class="text-[10px] text-slate-800 mb-6 bg-yellow-200 p-2 rounded border border-yellow-500">
+                ¡Ayuda a juntar manzanas rojas y doradas! Evita gusanos y manzanas podridas.
+            </p>
+            <div class="w-24 h-24 mb-6 bg-sky-200 rounded-full border-4 border-white shadow-inner flex items-center justify-center relative overflow-hidden">
+                <canvas id="previewCanvas" width="60" height="60"></canvas>
+            </div>
+            <button id="start-btn" class="bg-green-500 hover:bg-green-400 text-white border-b-4 border-green-800 active:border-b-0 py-3 px-6 rounded-lg text-sm font-bold shadow-lg transition">
+                ¡JUGAR AHORA!
+            </button>
+        </div>
+
+        <div id="game-over-screen" class="absolute inset-0 bg-slate-900 bg-opacity-90 flex flex-col items-center justify-center p-6 text-center z-20 hidden">
+            <h2 class="text-2xl text-red-500 font-bold mb-4 drop-shadow">¡FIN DEL JUEGO!</h2>
+            <div class="bg-slate-800 border-2 border-slate-700 p-4 rounded-lg w-full mb-6">
+                <p class="text-xs text-gray-400 mb-2">PUNTOS TOTALES</p>
+                <p id="final-score" class="text-2xl text-yellow-400 font-bold mb-4">0</p>
+                <p class="text-[10px] text-gray-400 mb-1">RECORD MÁXIMO</p>
+                <p id="high-score" class="text-lg text-emerald-400 font-bold">0</p>
+            </div>
+            <button id="restart-btn" class="bg-yellow-500 hover:bg-yellow-400 text-slate-900 border-b-4 border-yellow-700 active:border-b-0 py-3 px-6 rounded-lg text-sm font-bold shadow-lg transition">
+                REINTENTAR 🔄
+            </button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+* {
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+body {
+  font-family: 'Press Start 2P', cursive;
+  background-color: #1a1a2e;
+  color: #fff;
+  overflow: hidden;
+}
+
+.pixel-corners {
+  clip-path: polygon(
+    0 4px, 4px 4px, 4px 0,
+    calc(100% - 4px) 0, calc(100% - 4px) 4px, 100% 4px,
+    100% calc(100% - 4px), calc(100% - 4px) calc(100% - 4px), calc(100% - 4px) 100%,
+    4px 100%, 4px calc(100% - 4px), 0 calc(100% - 4px)
+  );
+}
+
+.btn-pixel {
+  box-shadow: inset -4px -4px 0 0 #1a4d00;
+  border: 4px solid #000;
+}
+
+.btn-pixel:active {
+  box-shadow: inset 4px 4px 0 0 #1a4d00;
+  transform: translateY(2px);
+}
+
+canvas {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
